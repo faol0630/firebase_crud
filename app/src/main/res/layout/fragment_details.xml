@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#414141"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DetailsFragment">
+
+    <TextView
+        android:id="@+id/tvEmployeeNameDetails"
+        android:textColor="#FFC107"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:padding="16dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#DABAEB"
+        android:hint="@string/employee_s_name" />
+
+    <ImageView
+        android:id="@+id/ivEmployeePictureDetails"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+    <TextView
+        android:id="@+id/tvEmployeeIdDetails"
+        android:textColor="#FFC107"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_s_id"
+        android:textColorHint="#DABAEB"
+        />
+
+    <TextView
+        android:id="@+id/tvOccupationDetails"
+        android:textColor="#FFC107"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_s_occupation"
+        android:textColorHint="#DABAEB"
+        />
+
+    <TextView
+        android:id="@+id/tvSalaryDetails"
+        android:textColor="#FFC107"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/employee_s_salary"
+        android:textColorHint="#DABAEB"/>
+
+    <TextView
+        android:id="@+id/tvYearOfHireDetails"
+        android:textColor="#FFC107"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/year_of_hire"
+        android:textColorHint="#DABAEB"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/btnUpdateEmployee"
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/update_employee_info" />
+
+        <Button
+            android:id="@+id/btnDeleteEmployee"
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/delete_employee" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

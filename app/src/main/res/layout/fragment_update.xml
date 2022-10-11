@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#414141"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.UpdateFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/etUpdateEmployeeId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:hint="@string/id"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="#FF9800"
+                    android:textColorHint="#9BABC8"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvUpdateEmployeeName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="4"
+                    android:autofillHints=""
+                    android:hint="@string/name_2"
+                    android:padding="12dp"
+                    android:textColor="#FF9800"
+                    android:textColorHint="#9BABC8"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivItemUpdateEmployee"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/image"
+                app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+
+            <Button
+                android:id="@+id/btnTakeANewPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Update picture" />
+
+            <EditText
+                android:id="@+id/etOccupationUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="Occupation"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="#FF9800"
+                android:textColorHint="#9BABC8"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/etSalaryUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="salary"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="#959595"
+                android:textColorHint="#9BABC8"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/etYearOfHireUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Year of hire"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="#FF9800"
+                android:textColorHint="#9BABC8"
+                android:textSize="18sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/btnAddUpdateEmployeee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@string/update_employee_info" />
+
+            <Button
+                android:id="@+id/btnGoingToListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@string/go_to_employee_s_list" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
