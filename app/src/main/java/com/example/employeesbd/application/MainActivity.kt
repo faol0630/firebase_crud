@@ -1,10 +1,11 @@
-package com.example.employeesbd
+package com.example.employeesbd.application
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.employeesbd.R
 import com.example.employeesbd.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
