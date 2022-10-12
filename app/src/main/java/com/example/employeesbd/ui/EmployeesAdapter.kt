@@ -38,7 +38,7 @@ class EmployeesAdapter(
     }
 
     inner class EmployeesViewHolder(
-        val binding: ItemListBinding,
+        private val binding: ItemListBinding,
         val context: Context
     ):RecyclerView.ViewHolder(binding.root) {
         fun bind1(item: Employee) {

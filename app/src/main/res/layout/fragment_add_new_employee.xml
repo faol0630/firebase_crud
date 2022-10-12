@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="#414141"
     android:orientation="vertical"
     tools:context=".ui.AddNewEmployeeFragment">
 
@@ -17,6 +17,44 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/etNewEmployeeId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:hint="@string/id"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etEmployeeName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="4"
+                    android:autofillHints=""
+                    android:hint="@string/employee_s_name"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
 
             <ImageView
                 android:id="@+id/ivEmployeePicture"
@@ -26,11 +64,14 @@
                 android:contentDescription="@string/image"
                 app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnTakePicture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:textColor="#FFEB3B"
+                android:alpha="0.80"
+                android:background="@drawable/button_bg"
                 android:text="@string/take_a_picture" />
 
             <EditText
@@ -38,11 +79,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:hint="@string/occupation"
+                android:hint="@string/occupation_0"
                 android:inputType="text"
                 android:padding="12dp"
-                android:textColor="#FF9800"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
@@ -54,8 +95,8 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:padding="12dp"
-                android:textColor="#959595"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
@@ -67,66 +108,36 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:padding="12dp"
-                android:textColor="#FF9800"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddNewEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:textColor="#FFEB3B"
+                android:alpha="0.80"
+                android:background="@drawable/button_bg"
                 android:text="@string/add_new_employee" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGoingToListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:textColor="#FFEB3B"
+                android:alpha="0.80"
+                android:background="@drawable/button_bg"
                 android:text="@string/go_to_list_employees" />
 
 
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-
-        <EditText
-            android:id="@+id/etNewEmployeeId"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
-            android:layout_weight="1"
-            android:autofillHints=""
-            android:hint="@string/id"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#FF9800"
-            android:textColorHint="#9BABC8"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/etEmployeeName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
-            android:layout_weight="4"
-            android:autofillHints=""
-            android:hint="@string/employee_s_name"
-            android:inputType="text"
-            android:padding="12dp"
-            android:textColor="#FF9800"
-            android:textColorHint="#9BABC8"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
 
 </LinearLayout>

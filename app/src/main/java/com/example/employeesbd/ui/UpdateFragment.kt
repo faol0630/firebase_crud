@@ -85,7 +85,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     private fun updatingView() {
         binding.etUpdateEmployeeId.setText(employee.id.toString())
         binding.tvUpdateEmployeeName.text = employee.name
-        binding.etOccupationUpdate.setText(employee.occupation.toString())
+        binding.etOccupationUpdate.setText(employee.occupation)
         binding.etSalaryUpdate.setText(employee.salary.toString())
         binding.etYearOfHireUpdate.setText(employee.yearOfHire.toString())
         Glide.with(requireContext())

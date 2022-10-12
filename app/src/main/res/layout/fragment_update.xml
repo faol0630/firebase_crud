@@ -33,8 +33,8 @@
                     android:hint="@string/id"
                     android:inputType="text"
                     android:padding="12dp"
-                    android:textColor="#FF9800"
-                    android:textColorHint="#9BABC8"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -47,8 +47,8 @@
                     android:autofillHints=""
                     android:hint="@string/name_2"
                     android:padding="12dp"
-                    android:textColor="#FF9800"
-                    android:textColorHint="#9BABC8"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -62,23 +62,26 @@
                 android:contentDescription="@string/image"
                 app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnTakeANewPicture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
-                android:text="Update picture" />
+                android:alpha="0.80"
+                android:textColor="#FFEB3B"
+                android:background="@drawable/button_bg"
+                android:text="@string/update_picture" />
 
             <EditText
                 android:id="@+id/etOccupationUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:autofillHints=""
-                android:hint="Occupation"
+                android:hint="@string/occupation_2"
                 android:inputType="number"
                 android:padding="12dp"
-                android:textColor="#FF9800"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
@@ -86,12 +89,12 @@
                 android:id="@+id/etSalaryUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="salary"
+                android:hint="@string/salary_0"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:padding="12dp"
-                android:textColor="#959595"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
@@ -99,27 +102,33 @@
                 android:id="@+id/etYearOfHireUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Year of hire"
+                android:hint="@string/year_of_hire_2"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:padding="12dp"
-                android:textColor="#FF9800"
-                android:textColorHint="#9BABC8"
+                android:textColor="#FFEB3B"
+                android:textColorHint="#98A519"
                 android:textSize="18sp"
                 android:textStyle="italic" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAddUpdateEmployeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:alpha="0.80"
+                android:background="@drawable/button_bg"
+                android:textColor="#FFEB3B"
                 android:text="@string/update_employee_info" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGoingToListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:textColor="#FFEB3B"
+                android:alpha="0.80"
+                android:background="@drawable/button_bg"
                 android:text="@string/go_to_employee_s_list" />
 
 

@@ -21,4 +21,11 @@
     <string name="delete_employee">Delete employee</string>
     <string name="name_2">Name</string>
     <string name="go_to_employee_s_list">Go to employee\'s list</string>
+    <string name="image_2">image</string>
+    <string name="update_picture">Update picture</string>
+    <string name="occupation_2">Occupation</string>
+    <string name="salary_2">salary</string>
+    <string name="year_of_hire_2">Year of hire</string>
+    <string name="salary_0">Salary</string>
+    <string name="occupation_0">Occupation</string>
 </resources>

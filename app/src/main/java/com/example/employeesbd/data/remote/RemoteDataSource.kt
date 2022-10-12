@@ -17,7 +17,7 @@ class RemoteDataSource {
             .get()
             .await()
 
-        //querySnapshot es toda la lista de documents de firebase
+        //querySnapshot is the entire list of firebase documents
         for (i in querySnapshot.documents) {
             i.toObject(Employee::class.java)?.let {
                 employeesList.add(it)

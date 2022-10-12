@@ -23,32 +23,33 @@
 
     <TextView
         android:id="@+id/tvEmployeeNameDetails"
-        android:textColor="#FFC107"
+        android:textColor="#FFEB3B"
         android:textStyle="bold"
         android:textSize="22sp"
         android:padding="16dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#DABAEB"
+        android:textColorHint="#98A519"
         android:hint="@string/employee_s_name" />
 
     <ImageView
         android:id="@+id/ivEmployeePictureDetails"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:contentDescription="@string/image_2" />
 
     <TextView
         android:id="@+id/tvEmployeeIdDetails"
-        android:textColor="#FFC107"
+        android:textColor="#FFEB3B"
         android:textStyle="italic"
         android:textSize="18sp"
         android:padding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/employee_s_id"
-        android:textColorHint="#DABAEB"
+        android:textColorHint="#98A519"
         />
 
     <TextView
@@ -60,30 +61,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/employee_s_occupation"
-        android:textColorHint="#DABAEB"
+        android:textColorHint="#98A519"
         />
 
     <TextView
         android:id="@+id/tvSalaryDetails"
-        android:textColor="#FFC107"
+        android:textColor="#FFEB3B"
         android:textStyle="italic"
         android:textSize="18sp"
         android:padding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/employee_s_salary"
-        android:textColorHint="#DABAEB"/>
+        android:textColorHint="#98A519"/>
 
     <TextView
         android:id="@+id/tvYearOfHireDetails"
-        android:textColor="#FFC107"
+        android:textColor="#FFEB3B"
         android:textStyle="italic"
         android:textSize="18sp"
         android:padding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/year_of_hire"
-        android:textColorHint="#DABAEB"/>
+        android:textColorHint="#98A519"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -91,20 +92,26 @@
         android:layout_height="wrap_content">
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpdateEmployee"
+            android:textColor="#FFEB3B"
             android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:alpha="0.80"
+            android:background="@drawable/button_bg"
             android:text="@string/update_employee_info" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDeleteEmployee"
+            android:textColor="#FFEB3B"
             android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:alpha="0.80"
+            android:background="@drawable/button_bg"
             android:text="@string/delete_employee" />
 
 
