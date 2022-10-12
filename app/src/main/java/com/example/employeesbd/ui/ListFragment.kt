@@ -35,12 +35,18 @@ class ListFragment : Fragment(R.layout.fragment_list), EmployeesAdapter.OnEmploy
             when(it){
                 is ResourceSealedClass.Loading -> {
                     binding.progressBar1.show()
+                    binding.rvEmployeesList.hide()
+                    binding.tvEmptyList.hide()
+                    binding.btnAddNewEmployee.hide()
                 }
                 is ResourceSealedClass.Success -> {
                     binding.progressBar1.hide()
+                    binding.btnAddNewEmployee.show()
                     if (it.data.isEmpty()){
                         binding.tvEmptyList.show()
+                        binding.rvEmployeesList.hide()
                     }
+                    binding.rvEmployeesList.show()
                     binding.rvEmployeesList.adapter = EmployeesAdapter(it.data, this)
                 }
                 is ResourceSealedClass.Failure -> {
