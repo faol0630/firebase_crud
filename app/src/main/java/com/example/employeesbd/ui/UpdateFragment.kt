@@ -75,7 +75,6 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
             updatingEmployee()
 
-            Toast.makeText(requireContext(), "City Updated", Toast.LENGTH_SHORT).show()
         }
 
         binding.btnGoingToListFragment.setOnClickListener {
@@ -96,18 +95,42 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     }
 
     private fun updatingEmployee() {
-        val id = binding.etUpdateEmployeeId.text.toString()
-        val occupation = binding.etOccupationUpdate.text.toString()
-        val salary = binding.etSalaryUpdate.text.toString()
-        val yearOfHire = binding.etYearOfHireUpdate.text.toString()
-        val imageUrl = binding.tvUpdateEmployeeName.text.toString()
-        val name = binding.tvUpdateEmployeeName.text.toString()
 
-        val newEmployee = Employee(id.toInt(), name, occupation , salary.toInt(), yearOfHire.toInt(), imageUrl)
+        try {
 
-        val employeeName = binding.tvUpdateEmployeeName.text.toString()
+            val id = binding.etUpdateEmployeeId.text.toString()
+            val occupation = binding.etOccupationUpdate.text.toString()
+            val salary = binding.etSalaryUpdate.text.toString()
+            val yearOfHire = binding.etYearOfHireUpdate.text.toString()
+            val imageUrl = binding.tvUpdateEmployeeName.text.toString()
+            val name = binding.tvUpdateEmployeeName.text.toString()
 
-        viewModel.addNewEmployee(newEmployee, employeeName)
+            val newEmployee = Employee(id.toInt(), name, occupation , salary.toInt(), yearOfHire.toInt(), imageUrl)
+
+            val employeeName = binding.tvUpdateEmployeeName.text.toString()
+
+            if (id.isNotEmpty() && name.isNotEmpty() && occupation.isNotEmpty() &&
+                salary.isNotEmpty() && yearOfHire.isNotEmpty()
+            ) {
+                viewModel.addNewEmployee(newEmployee, employeeName)
+
+                Toast.makeText(requireContext(), "City Updated", Toast.LENGTH_SHORT).show()
+            }
+
+        } catch (e: IllegalArgumentException) {
+            Toast.makeText(
+                requireContext(),
+                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
     }
 
     //abrir la app que toma la foto:

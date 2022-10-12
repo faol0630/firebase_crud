@@ -31,7 +31,7 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
 
     private lateinit var binding: FragmentAddNewEmployeeBinding
 
-    private val viewModel by viewModels<EmployeesViewModel>{
+    private val viewModel by viewModels<EmployeesViewModel> {
         EmployeesViewModelFactory(EmployeesRepoImpl(RemoteDataSource()))
     }
 
@@ -63,9 +63,8 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
 
             addingNewEmployee()
 
-            sendPictureToDB(imageBitmap)
+            //sendPictureToDB(imageBitmap)
 
-            Toast.makeText(requireContext(), "New Employee Added", Toast.LENGTH_SHORT).show()
         }
 
         binding.btnGoingToListFragment.setOnClickListener {
@@ -75,19 +74,52 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
     }
 
     private fun addingNewEmployee() {
-        val id = binding.etNewEmployeeId.text.toString()
-        val occupation = binding.etOccupation.text.toString()
-        val salary = binding.etSalary.text.toString()
-        val yearOfHire = binding.etYearOfHire.text.toString()
-        val name = binding.etEmployeeName.text.toString()
-        val imageUrl = binding.ivEmployeePicture.setImageBitmap(imageBitmap)//no cumple ninguna funcion
 
-        //----------------------------------------------------------
-        val newEmployee =
-            Employee(id.toInt(), name, occupation, salary.toInt(), yearOfHire.toInt(), imageUrl.toString()
-            )
+        try {
+            val id = binding.etNewEmployeeId.text.toString()
+            val occupation = binding.etOccupation.text.toString()
+            val salary = binding.etSalary.text.toString()
+            val yearOfHire = binding.etYearOfHire.text.toString()
+            val name = binding.etEmployeeName.text.toString()
+            val imageUrl =
+                binding.ivEmployeePicture.setImageBitmap(imageBitmap)//no cumple ninguna funcion
 
-        viewModel.addNewEmployee(newEmployee, employeeName)
+            //----------------------------------------------------------
+            val newEmployee =
+                Employee(
+                    id.toInt(),
+                    name,
+                    occupation,
+                    salary.toInt(),
+                    yearOfHire.toInt(),
+                    imageUrl.toString()
+                )
+
+            if (id.isNotEmpty() && name.isNotEmpty() && occupation.isNotEmpty() &&
+                salary.isNotEmpty() && yearOfHire.isNotEmpty()
+            ) {
+                viewModel.addNewEmployee(newEmployee, employeeName)
+
+                Toast.makeText(requireContext(), "New Employee Added", Toast.LENGTH_SHORT).show()
+
+                sendPictureToDB(imageBitmap)
+            }
+
+        } catch (e: IllegalArgumentException) {
+            Toast.makeText(
+                requireContext(),
+                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
+            Toast.makeText(
+                requireContext(),
+                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
     }
 
     //metodos relacionados con tomar la foto:
