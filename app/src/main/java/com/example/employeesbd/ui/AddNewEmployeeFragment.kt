@@ -189,7 +189,7 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
                 downloadUrl = it.result.toString()
                 //para poner la foto dentro de firestore firebase como URL(update para no borrar la info previa):
 
-                FirebaseFirestore.getInstance().collection("ciudades").document(employeeName)
+                FirebaseFirestore.getInstance().collection("employees").document(employeeName)
                     .update(mapOf("imageUrl" to downloadUrl))
 
 

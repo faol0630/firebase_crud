@@ -37,7 +37,7 @@
         android:id="@+id/ivEmployeePictureDetails"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        app:srcCompat="@drawable/ic_launcher_background"
         android:contentDescription="@string/image_2" />
 
     <TextView

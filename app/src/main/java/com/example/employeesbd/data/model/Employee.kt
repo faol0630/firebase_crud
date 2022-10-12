@@ -9,7 +9,7 @@ data class Employee(
     val occupation : String = "",
     val salary : Int = 0,
     val yearOfHire : Int = 0,
-    val employeePicture: String = ""
+    val imageUrl: String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -26,7 +26,7 @@ data class Employee(
         parcel.writeString(occupation)
         parcel.writeInt(salary)
         parcel.writeInt(yearOfHire)
-        parcel.writeString(employeePicture)
+        parcel.writeString(imageUrl)
     }
 
     override fun describeContents(): Int {

@@ -42,11 +42,11 @@ class EmployeesAdapter(
         val context: Context
     ):RecyclerView.ViewHolder(binding.root) {
         fun bind1(item: Employee) {
-            Glide.with(context)
-                .load(item.employeePicture)
-                .centerCrop()
-                .into(binding.employeeImageView)
             binding.tvEmployeeName.text = item.name
+            Glide.with(context)
+                .load(item.imageUrl)
+                .into(binding.employeeImageView)
+                //.centerCrop()
         }
     }
 

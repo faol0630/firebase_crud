@@ -62,7 +62,7 @@
                 android:layout_height="250dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/image"
-                app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnTakePicture"

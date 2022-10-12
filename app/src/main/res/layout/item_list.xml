@@ -27,4 +27,5 @@
         android:layout_height="200dp"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/image" />
+
 </LinearLayout>

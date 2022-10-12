@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134544948880",
+    "project_id": "employeesbd-aeda8",
+    "storage_bucket": "employeesbd-aeda8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134544948880:android:5ca27571d7fb79a08e2215",
+        "android_client_info": {
+          "package_name": "com.example.employeesbd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134544948880-escii7d1ibqiemhvdavkkc31en913tct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMQeQL7imtQUq5ILE9GzFcYLNIeDA6DO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134544948880-escii7d1ibqiemhvdavkkc31en913tct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

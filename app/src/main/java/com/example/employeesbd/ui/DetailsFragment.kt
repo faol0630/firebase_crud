@@ -89,8 +89,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding.tvSalaryDetails.text = employee.salary.toString()
         binding.tvYearOfHireDetails.text = employee.yearOfHire.toString()
         Glide.with(requireContext())
-            .load(employee.employeePicture)
-            .centerCrop()
+            .load(employee.imageUrl)
             .into(binding.ivEmployeePictureDetails)
+            //.centerCrop()
     }
 }

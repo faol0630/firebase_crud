@@ -5,8 +5,8 @@ import com.example.employeesbd.data.model.Employee
 import com.example.employeesbd.data.remote.RemoteDataSource
 
 class EmployeesRepoImpl(
-    private val dataSource : RemoteDataSource
-): EmployeesRepoInt {
+    private val dataSource: RemoteDataSource
+) : EmployeesRepoInt {
     override suspend fun getAllEmployees(): ResourceSealedClass<List<Employee>> {
         return dataSource.getEmployeesFromFirebase()
     }
@@ -16,7 +16,7 @@ class EmployeesRepoImpl(
     }
 
     override suspend fun addNewEmployee(newEmployee: Employee, employeeName: String) {
-        dataSource.addNewEmployee(newEmployee,employeeName)
+        dataSource.addNewEmployee(newEmployee, employeeName)
     }
 
     override suspend fun deleteEmployee(employeeName: String) {

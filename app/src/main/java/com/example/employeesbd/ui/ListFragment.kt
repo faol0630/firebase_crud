@@ -58,7 +58,7 @@ class ListFragment : Fragment(R.layout.fragment_list), EmployeesAdapter.OnEmploy
     override fun onEmployeeClick(employee: Employee, position: Int) {
         val bundle = Bundle()
         bundle.putParcelable("employee", employee)
-        findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
+        findNavController().navigate(R.id.action_listFragment_to_detailsFragment, bundle)
 
     }
 

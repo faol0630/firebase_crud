@@ -89,7 +89,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         binding.etSalaryUpdate.setText(employee.salary.toString())
         binding.etYearOfHireUpdate.setText(employee.yearOfHire.toString())
         Glide.with(requireContext())
-            .load(employee.employeePicture)
+            .load(employee.imageUrl)
             .centerCrop()
             .into(binding.ivItemUpdateEmployee)
     }
@@ -114,19 +114,21 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             ) {
                 viewModel.addNewEmployee(newEmployee, employeeName)
 
-                Toast.makeText(requireContext(), "City Updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Employee Updated", Toast.LENGTH_SHORT).show()
+
+                sendPictureToDB(imageBitmap)
             }
 
         } catch (e: IllegalArgumentException) {
             Toast.makeText(
                 requireContext(),
-                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                "There should be no empty boxes(IllegalArgumentException)",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             Toast.makeText(
                 requireContext(),
-                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                "There should be no empty boxes(Exception)",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -199,7 +201,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
                 downloadUrl = it.result.toString()
                 //para poner la foto dentro de firestore firebase como URL(update para no borrar la info previa):
 
-                FirebaseFirestore.getInstance().collection("ciudades").document(employeeName)
+                FirebaseFirestore.getInstance().collection("employees").document(employeeName)
                     .update(mapOf("imageUrl" to downloadUrl))
 
             }
