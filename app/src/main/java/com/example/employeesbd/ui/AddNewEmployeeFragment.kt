@@ -79,8 +79,9 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
             val salary = binding.etSalary.text.toString()
             val yearOfHire = binding.etYearOfHire.text.toString()
             val name = binding.etEmployeeName.text.toString()
-            val imageUrl =
-                binding.ivEmployeePicture.setImageBitmap(imageBitmap)//no cumple ninguna funcion
+//            val imageUrl =
+//                binding.ivEmployeePicture.setImageBitmap(imageBitmap)//no cumple ninguna funcion
+            val imageUrl = ""
 
             //----------------------------------------------------------
             val newEmployee =
@@ -90,29 +91,37 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
                     occupation,
                     salary.toInt(),
                     yearOfHire.toInt(),
-                    imageUrl.toString()
+                    imageUrl
                 )
 
-            if (id.isNotEmpty() && name.isNotEmpty() && occupation.isNotEmpty() &&
-                salary.isNotEmpty() && yearOfHire.isNotEmpty()
-            ) {
-                viewModel.addNewEmployee(newEmployee, employeeName)
+//            if (id.isNotEmpty() && name.isNotEmpty() && occupation.isNotEmpty() &&
+//                salary.isNotEmpty() && yearOfHire.isNotEmpty() && imageUrl.isNotEmpty()
+//            ) {
 
-                Toast.makeText(requireContext(), "New Employee Added", Toast.LENGTH_SHORT).show()
+            viewModel.addNewEmployee(newEmployee, employeeName)
 
-                sendPictureToDB(imageBitmap)
-            }
+            Toast.makeText(requireContext(), "New Employee Added", Toast.LENGTH_SHORT).show()
+
+            sendPictureToDB(imageBitmap)
+//            }
+
 
         } catch (e: IllegalArgumentException) {
             Toast.makeText(
                 requireContext(),
-                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                "There should be no empty boxes(IllegalArgumentException, Add New)",
                 Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: UninitializedPropertyAccessException) {
+            Toast.makeText(
+                requireContext(),
+                "lateinit property imageBitmap has not been initialized(UninitializedPropertyAccessException, Add New)",
+                Toast.LENGTH_LONG
             ).show()
         } catch (e: Exception) {
             Toast.makeText(
                 requireContext(),
-                "No deben quedar casillas en blanco(IllegalArgumentException)",
+                "There should be no empty boxes(Exception, Add New)",
                 Toast.LENGTH_SHORT
             ).show()
         }

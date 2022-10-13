@@ -28,9 +28,9 @@ import java.util.*
 
 class UpdateFragment : Fragment(R.layout.fragment_update) {
 
-    private lateinit var binding : FragmentUpdateBinding
+    private lateinit var binding: FragmentUpdateBinding
 
-    private val viewModel by viewModels<EmployeesViewModel>{
+    private val viewModel by viewModels<EmployeesViewModel> {
         EmployeesViewModelFactory(EmployeesRepoImpl(RemoteDataSource()))
     }
 
@@ -48,11 +48,13 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
     private lateinit var downloadUrl: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requireArguments().let {
             employee = it.getParcelable("employee")!!
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,12 +68,9 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             dispatchTakePictureIntent()
         }
 
-        binding.btnAddUpdateEmployeee.setOnClickListener {
-            viewModel.deleteEmployee(binding.tvUpdateEmployeeName.text.toString())
+        binding.btnUpdateEmployeee.setOnClickListener {
 
             employeeName = binding.tvUpdateEmployeeName.text.toString()
-
-            sendPictureToDB(imageBitmap)
 
             updatingEmployee()
 
@@ -98,37 +97,53 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         try {
 
+            viewModel.deleteEmployee(binding.tvUpdateEmployeeName.text.toString())
+
             val id = binding.etUpdateEmployeeId.text.toString()
             val occupation = binding.etOccupationUpdate.text.toString()
             val salary = binding.etSalaryUpdate.text.toString()
             val yearOfHire = binding.etYearOfHireUpdate.text.toString()
-            val imageUrl = binding.tvUpdateEmployeeName.text.toString()
             val name = binding.tvUpdateEmployeeName.text.toString()
 
-            val newEmployee = Employee(id.toInt(), name, occupation , salary.toInt(), yearOfHire.toInt(), imageUrl)
+            //en caso de no tomar una nueva foto , se salva la direccion de la foto existente
+            //ya que ese item será borrado y creado nuevamente.Al nuevo item se le asigna la
+            //foto vieja.
+            val imageUrl = employee.imageUrl
+
+            val newEmployee = Employee(
+                id.toInt(),
+                name,
+                occupation,
+                salary.toInt(),
+                yearOfHire.toInt(),
+                imageUrl
+            )
 
             val employeeName = binding.tvUpdateEmployeeName.text.toString()
 
-            if (id.isNotEmpty() && name.isNotEmpty() && occupation.isNotEmpty() &&
-                salary.isNotEmpty() && yearOfHire.isNotEmpty()
-            ) {
-                viewModel.addNewEmployee(newEmployee, employeeName)
+            viewModel.addNewEmployee(newEmployee, employeeName)
 
-                Toast.makeText(requireContext(), "Employee Updated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Employee Updated", Toast.LENGTH_SHORT).show()
 
-                sendPictureToDB(imageBitmap)
-            }
+            sendPictureToDB(imageBitmap)
+
 
         } catch (e: IllegalArgumentException) {
             Toast.makeText(
                 requireContext(),
-                "There should be no empty boxes(IllegalArgumentException)",
+                "There should be no empty boxes(IllegalArgumentException, Update)",
                 Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: UninitializedPropertyAccessException) {
+            Toast.makeText(
+                requireContext(),
+                "The picture has not been changed",
+                Toast.LENGTH_LONG
             ).show()
         } catch (e: Exception) {
             Toast.makeText(
                 requireContext(),
-                "There should be no empty boxes(Exception)",
+                "Error",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -142,9 +157,14 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         try {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)//take the picture
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(requireContext(), "There isn't app to take the picture", Toast.LENGTH_SHORT)
+            Toast.makeText(
+                requireContext(),
+                "There isn't app to take the picture",
+                Toast.LENGTH_SHORT
+            )
                 .show()
         }
+        //imageBitmap = takePictureIntent.extras?.get("data") as Bitmap
     }
 
     @Deprecated("Deprecated in Java")
@@ -203,12 +223,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
                 FirebaseFirestore.getInstance().collection("employees").document(employeeName)
                     .update(mapOf("imageUrl" to downloadUrl))
-
             }
         }
-
-
     }
-
-
 }

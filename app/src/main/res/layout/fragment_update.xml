@@ -112,7 +112,7 @@
                 android:textStyle="italic" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAddUpdateEmployeee"
+                android:id="@+id/btn_update_employeee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
