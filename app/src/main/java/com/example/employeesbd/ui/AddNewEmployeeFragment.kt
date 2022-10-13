@@ -73,6 +73,10 @@ class AddNewEmployeeFragment : Fragment(R.layout.fragment_add_new_employee) {
 
     private fun addingNewEmployee() {
 
+        //CUANDO SE CREA UN NUEVO EMPLOYEE SIN FOTO, AL EDITAR PARA AGREGAR FOTO ,
+        //DESPUES DE TOMAR LA FOTO Y VOLVER AL FRAGMENT NO LA MUESTRA PERO SI LA AGREGA
+        //(CORREGIR)
+
         try {
             val id = binding.etNewEmployeeId.text.toString()
             val occupation = binding.etOccupation.text.toString()

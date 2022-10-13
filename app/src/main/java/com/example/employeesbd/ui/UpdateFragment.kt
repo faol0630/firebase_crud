@@ -48,6 +48,8 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
     private lateinit var downloadUrl: String
 
+    private lateinit var imageUrl: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,7 +110,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             //en caso de no tomar una nueva foto , se salva la direccion de la foto existente
             //ya que ese item será borrado y creado nuevamente.Al nuevo item se le asigna la
             //foto vieja.
-            val imageUrl = employee.imageUrl
+             imageUrl = employee.imageUrl
 
             val newEmployee = Employee(
                 id.toInt(),
@@ -177,6 +179,11 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == AppCompatActivity.RESULT_OK) {
             imageBitmap = data?.extras?.get("data") as Bitmap
             binding.ivItemUpdateEmployee.setImageBitmap(imageBitmap)//se asigna la foto en forma de bitmap al imageView
+
+            imageUrl = Glide.with(requireContext())
+                .load(imageBitmap)
+                .centerCrop()
+                .into(binding.ivItemUpdateEmployee).toString()
 
             uploadPicture()
 
