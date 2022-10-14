@@ -1,15 +1,12 @@
 <resources>
     <string name="app_name">EmployeesBD</string>
     <string name="name">Name</string>
-    <string name="image">image</string>
     <string name="add_new_employee">Add new employee</string>
     <string name="empty_list_press_button_to_add_a_new_employee">Empty list.Press button to add a new employee</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="employee_name">Employee name</string>
     <string name="take_a_picture">Take a picture</string>
-    <string name="occupation">occupation</string>
-    <string name="salary">Salary</string>
     <string name="go_to_list_employees">Go to list employees</string>
     <string name="id">Id</string>
     <string name="employee_s_name">Employee\'s name</string>
@@ -19,13 +16,12 @@
     <string name="year_of_hire">Year of hire</string>
     <string name="update_employee_info">Update Employee Info</string>
     <string name="delete_employee">Delete employee</string>
-    <string name="name_2">Name</string>
     <string name="go_to_employee_s_list">Go to employee\'s list</string>
-    <string name="image_2">image</string>
+    <string name="image">Image</string>
     <string name="update_picture">Update picture</string>
+    <string name="occupation">Occupation</string>
+    <string name="salary">Salary</string>
     <string name="occupation_2">Occupation</string>
-    <string name="salary_2">salary</string>
-    <string name="year_of_hire_2">Year of hire</string>
-    <string name="salary_0">Salary</string>
-    <string name="occupation_0">Occupation</string>
+    <string name="salary_2">Salary</string>
+    <string name="id_2">Id</string>
 </resources>

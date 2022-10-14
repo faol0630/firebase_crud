@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="#414141"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#414141"
+    android:orientation="vertical"
     tools:context=".ui.UpdateFragment">
 
     <ScrollView
@@ -15,12 +15,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvUpdateEmployeeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:autofillHints=""
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/name"
+                android:textColor="#FFEB3B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/UpdateEmployeeId"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="12dp"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:padding="12dp"
+                    android:text="@string/id"
+                    android:textColor="#8BC34A"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
 
                 <EditText
@@ -36,21 +62,8 @@
                     android:textColor="#FFEB3B"
                     android:textColorHint="#98A519"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="italic" />
 
-                <TextView
-                    android:id="@+id/tvUpdateEmployeeName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="12dp"
-                    android:layout_weight="4"
-                    android:autofillHints=""
-                    android:hint="@string/name_2"
-                    android:padding="12dp"
-                    android:textColor="#FFEB3B"
-                    android:textColorHint="#98A519"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -68,48 +81,106 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
                 android:alpha="0.80"
-                android:textColor="#FFEB3B"
                 android:background="@drawable/button_bg"
-                android:text="@string/update_picture" />
+                android:text="@string/update_picture"
+                android:textColor="#FFEB3B" />
 
-            <EditText
-                android:id="@+id/etOccupationUpdate"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:hint="@string/occupation_2"
-                android:inputType="text"
-                android:padding="12dp"
-                android:textColor="#FFEB3B"
-                android:textColorHint="#98A519"
-                android:textSize="18sp"
-                android:textStyle="italic" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/etSalaryUpdate"
+                <TextView
+                    android:id="@+id/OccupationUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:padding="12dp"
+                    android:text="@string/occupation"
+                    android:textColor="#8BC34A"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etOccupationUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autofillHints=""
+                    android:hint="@string/occupation"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/salary_0"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp"
-                android:textColor="#FFEB3B"
-                android:textColorHint="#98A519"
-                android:textSize="18sp"
-                android:textStyle="italic" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/etYearOfHireUpdate"
+                <TextView
+                    android:id="@+id/SalaryUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:importantForAutofill="no"
+                    android:padding="12dp"
+                    android:text="@string/salary"
+                    android:textColor="#8BC34A"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etSalaryUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/salary"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/year_of_hire_2"
-                android:importantForAutofill="no"
-                android:inputType="number"
-                android:padding="12dp"
-                android:textColor="#FFEB3B"
-                android:textColorHint="#98A519"
-                android:textSize="18sp"
-                android:textStyle="italic" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/YearOfHireUpdate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/year_of_hire"
+                    android:importantForAutofill="no"
+                    android:padding="12dp"
+                    android:textColor="#8BC34A"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etYearOfHireUpdate"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/year_of_hire"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:padding="12dp"
+                    android:textColor="#FFEB3B"
+                    android:textColorHint="#98A519"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_update_employeee"
@@ -118,18 +189,18 @@
                 android:layout_margin="12dp"
                 android:alpha="0.80"
                 android:background="@drawable/button_bg"
-                android:textColor="#FFEB3B"
-                android:text="@string/update_employee_info" />
+                android:text="@string/update_employee_info"
+                android:textColor="#FFEB3B" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGoingToListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
-                android:textColor="#FFEB3B"
                 android:alpha="0.80"
                 android:background="@drawable/button_bg"
-                android:text="@string/go_to_employee_s_list" />
+                android:text="@string/go_to_employee_s_list"
+                android:textColor="#FFEB3B" />
 
 
         </LinearLayout>

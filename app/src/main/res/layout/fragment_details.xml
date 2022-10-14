@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="#414141"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#414141"
+    android:orientation="vertical"
     tools:context=".ui.DetailsFragment">
 
     <RelativeLayout
@@ -17,102 +17,173 @@
         <ProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
     </RelativeLayout>
 
     <TextView
         android:id="@+id/tvEmployeeNameDetails"
-        android:textColor="#FFEB3B"
-        android:textStyle="bold"
-        android:textSize="22sp"
-        android:padding="16dp"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/employee_s_name"
+        android:padding="16dp"
+        android:textColor="#FFEB3B"
         android:textColorHint="#98A519"
-        android:hint="@string/employee_s_name" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivEmployeePictureDetails"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:srcCompat="@drawable/ic_launcher_background"
-        android:contentDescription="@string/image_2" />
-
-    <TextView
-        android:id="@+id/tvEmployeeIdDetails"
-        android:textColor="#FFEB3B"
-        android:textStyle="italic"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/employee_s_id"
-        android:textColorHint="#98A519"
-        />
-
-    <TextView
-        android:id="@+id/tvOccupationDetails"
-        android:textColor="#FFC107"
-        android:textStyle="italic"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/employee_s_occupation"
-        android:textColorHint="#98A519"
-        />
-
-    <TextView
-        android:id="@+id/tvSalaryDetails"
-        android:textColor="#FFEB3B"
-        android:textStyle="italic"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/employee_s_salary"
-        android:textColorHint="#98A519"/>
-
-    <TextView
-        android:id="@+id/tvYearOfHireDetails"
-        android:textColor="#FFEB3B"
-        android:textStyle="italic"
-        android:textSize="18sp"
-        android:padding="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/year_of_hire"
-        android:textColorHint="#98A519"/>
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/EmployeeIdDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/id_2"
+            android:padding="12dp"
+            android:textColor="#8BC34A"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEmployeeIdDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/employee_s_id"
+            android:padding="12dp"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#98A519"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/EmployeeOccupationDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/occupation_2"
+            android:padding="12dp"
+            android:textColor="#8BC34A"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvOccupationDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/employee_s_occupation"
+            android:padding="12dp"
+            android:textColor="#FFC107"
+            android:textColorHint="#98A519"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/SalaryDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/salary_2"
+            android:padding="12dp"
+            android:textColor="#8BC34A"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSalaryDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/employee_s_salary"
+            android:padding="12dp"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#98A519"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/YearOfHireDetails"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/year_of_hire"
+            android:padding="12dp"
+            android:textColor="#8BC34A"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvYearOfHireDetails"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/year_of_hire"
+            android:padding="12dp"
+            android:textColor="#FFEB3B"
+            android:textColorHint="#98A519"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnUpdateEmployee"
-            android:textColor="#FFEB3B"
-            android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:layout_weight="1"
             android:alpha="0.80"
             android:background="@drawable/button_bg"
-            android:text="@string/update_employee_info" />
+            android:text="@string/update_employee_info"
+            android:textColor="#FFEB3B" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDeleteEmployee"
-            android:textColor="#FFEB3B"
-            android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:layout_weight="1"
             android:alpha="0.80"
             android:background="@drawable/button_bg"
-            android:text="@string/delete_employee" />
+            android:text="@string/delete_employee"
+            android:textColor="#FFEB3B" />
 
 
     </LinearLayout>
