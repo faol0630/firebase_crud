@@ -36,8 +36,6 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
     private lateinit var employee: Employee
 
-    //variables relacionadas con la foto:
-
     private val REQUEST_IMAGE_CAPTURE = 1
 
     private lateinit var imageRef: StorageReference
@@ -45,8 +43,6 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     private lateinit var employeeName: String
 
     private lateinit var imageBitmap: Bitmap
-
-    private lateinit var downloadUrl: String
 
     private lateinit var imageUrl: String
 
@@ -107,9 +103,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             val yearOfHire = binding.etYearOfHireUpdate.text.toString()
             val name = binding.tvUpdateEmployeeName.text.toString()
 
-            //en caso de no tomar una nueva foto , se salva la direccion de la foto existente
-            //ya que ese item será borrado y creado nuevamente.Al nuevo item se le asigna la
-            //foto vieja.
+            //saving the old photo in case it's not updated:
              imageUrl = employee.imageUrl
 
             val newEmployee = Employee(
@@ -152,12 +146,12 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
     }
 
-    //abrir la app que toma la foto:
+    //opening the camera:
     private fun dispatchTakePictureIntent() {
         val takePictureIntent =
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE)//abre la app que controla la camara del cel
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)//take the picture
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         } catch (e: ActivityNotFoundException) {
             Toast.makeText(
                 requireContext(),
@@ -166,7 +160,6 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
             )
                 .show()
         }
-        //imageBitmap = takePictureIntent.extras?.get("data") as Bitmap
     }
 
     @Deprecated("Deprecated in Java")
@@ -175,10 +168,10 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         resultCode: Int,
         data: Intent?
     ) {
-        super.onActivityResult(requestCode, resultCode, data)  //data es la foto
+        super.onActivityResult(requestCode, resultCode, data)  //date is the picture
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == AppCompatActivity.RESULT_OK) {
             imageBitmap = data?.extras?.get("data") as Bitmap
-            binding.ivItemUpdateEmployee.setImageBitmap(imageBitmap)//se asigna la foto en forma de bitmap al imageView
+            binding.ivItemUpdateEmployee.setImageBitmap(imageBitmap)
 
             imageUrl = Glide.with(requireContext())
                 .load(imageBitmap)
@@ -190,43 +183,40 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         }
     }
 
-    //se debe enviar la foto a storage para que de ahi coja la direccion http.
-    //esa direccion es la que se pone en la base de datos firebase.
-
-    //para subir la foto a firebase storage:
+    //first the picture is sent to firebase storage.then it's sent to firebase DB
+    //to upload the picture to firebase storage:
     private fun uploadPicture() {
-        //instancia de storage para guardar la foto:
         val storageRef = FirebaseStorage.getInstance().reference
-        //imagen dentro de una carpeta(imagenes) en storage:
+        //Saving with different names and doesn't delete the previous one."imagenes", is a folder.
         imageRef =
-            storageRef.child("imagenes/${UUID.randomUUID()}.jpg")//para que se salve con nombres diferentes y no borre la anterior/imagenes crea una carpeta.
+            storageRef.child("imagenes/${UUID.randomUUID()}.jpg")
 
     }
 
     private fun sendPictureToDB(bitmap: Bitmap) {
 
         val baos = ByteArrayOutputStream()
-        //comprimir la imagen:(calidad 100 es maxima calidad)
+        //compressing the image: (quality 100 is maximum quality)
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-        //convertir imagen en byteArray:
+        //converting image to byteArray:
         val data = baos.toByteArray()
 
-        val uploadTask = imageRef.putBytes(data)//promesa(parecido a sealed class)
+        val uploadTask = imageRef.putBytes(data)//promise (similar to sealed class)
 
         uploadTask.continueWithTask {
-            //si no es exitoso:
+            //Failure:
             if (!it.isSuccessful) {
                 it.exception?.let {
                     throw it
                 }
             }
-            //si es exitoso:
+            //Success:
             imageRef.downloadUrl
 
         }.addOnCompleteListener {
             if (it.isSuccessful) {
-                downloadUrl = it.result.toString()
-                //para poner la foto dentro de firestore firebase como URL(update para no borrar la info previa):
+                val downloadUrl = it.result.toString()
+                //adding the picture inside firestore firebase as URL("update" instead of "set" so as not to erase the previous info):
 
                 FirebaseFirestore.getInstance().collection("employees").document(employeeName)
                     .update(mapOf("imageUrl" to downloadUrl))

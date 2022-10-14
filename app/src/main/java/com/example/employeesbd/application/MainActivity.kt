@@ -27,4 +27,3 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 }
-//compila pero no muestra la info adecuadamente en el cel.si sube la info a firebase.
